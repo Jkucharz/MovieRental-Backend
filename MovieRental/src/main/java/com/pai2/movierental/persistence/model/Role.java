@@ -1,4 +1,4 @@
-package com.pai2.movierental.model;
+package com.pai2.movierental.persistence.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

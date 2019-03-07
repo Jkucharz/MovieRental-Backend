@@ -1,7 +1,7 @@
 package com.pai2.movierental.configuration;
 
-import com.pai2.movierental.model.Role;
-import com.pai2.movierental.model.User;
+import com.pai2.movierental.persistence.model.Role;
+import com.pai2.movierental.persistence.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

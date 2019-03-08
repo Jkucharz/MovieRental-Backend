@@ -31,4 +31,11 @@ public class UserService {
     public Role getRole(String roleName){
         return roleRepository.findByName(roleName);
     }
+
+    public boolean userExist(String name){
+        boolean value = false ;
+        if(userRepository.findByUserName(name)!= null)
+            value = true;
+        return value;
+    }
 }

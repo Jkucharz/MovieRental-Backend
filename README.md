@@ -53,9 +53,22 @@ Usuwanie tokena
 /logouts?access_token=xxx
 ```
 
-Pobieranie nazwy aktualnie zalogowanego użytownika
+Pobieranie nazwy aktualnie zalogowanego użytkownika
 ```
 /getUsername
+```
+
+Rejestracja użytkownika
+```
+/register
+```
+```
+{
+	"userName": "xxx",
+	"password": "xxx",
+	"passwordConfirmation": "xxx",
+	"email":"xxx@xxx"  
+}
 ```
 
 ## Inne informacje

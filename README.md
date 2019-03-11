@@ -43,22 +43,22 @@ secret
 
 ## API
 
-Pobieranie tokena
+Pobieranie tokena - POST
 ```
 /oauth/token?grant_type=password&username=xxx&password=xxx
 ```
 
-Usuwanie tokena
+Usuwanie tokena - GET
 ```
 /logouts?access_token=xxx
 ```
 
-Pobieranie nazwy aktualnie zalogowanego użytkownika
+Pobieranie nazwy aktualnie zalogowanego użytkownika - GET
 ```
 /getUsername
 ```
 
-Rejestracja użytkownika
+Rejestracja użytkownika - POST
 ```
 /register
 ```
@@ -71,7 +71,7 @@ Rejestracja użytkownika
 }
 ```
 
-Pobieranie wszystkich
+Pobieranie wszystkich filmów - GET
 ```
 /getAllMovie
 ```

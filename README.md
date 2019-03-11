@@ -2,7 +2,7 @@
 
 Wypożyczalnia filmów na projekt z projektowania aplikacji internetowych 2
 
-## Wykorzystane 
+## Wykorzystano
 
 * Java 8
 * Oracle Database 12c
@@ -29,7 +29,7 @@ Hasło
 MovieRental1
 ```
 
-## Autoryzacja tokena
+## Token
 
 Użytkownik
 ```
@@ -71,7 +71,13 @@ Rejestracja użytkownika
 }
 ```
 
+Pobieranie wszystkich
+```
+/getAllMovie
+```
+
 ## Inne informacje
 
 * Podczas startu serwera dodają się dwaj użytkownicy: user:user, admin:admin (tymczasowo)
+* Podczas startu serwera dodają się dwa filmy (tymczasowo)
 

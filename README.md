@@ -10,7 +10,8 @@ Wypożyczalnia filmów na projekt z projektowania aplikacji internetowych 2
 * JPA
 * Oauth2
 * Lombok 
-* *Coś do frontu (?)*
+* Angular
+* Bootstrap
 
 ## Baza danych
 

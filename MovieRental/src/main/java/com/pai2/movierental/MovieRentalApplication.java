@@ -36,8 +36,9 @@ public class MovieRentalApplication {
             userService.save(new User("admin", "admin", "admin@movierental.pl", Arrays.asList(userService.getRole("admin"))));
             userService.save(new User("user", "user", "user@gmail.com", Arrays.asList(userService.getRole("user"))));
 
-            movieService.save(new Movie("Przyklad","Przyklad","Przyklad",new Date(2000,12,24),"Przyklad",1,5));
-            movieService.save(new Movie("Przyklad","Przyklad","Przyklad",new Date(2000,12,24),"Przyklad",1,5));
+            movieService.save(new Movie("Przyklad","Przyklad","Przyklad",new Date(100,01,24),"Przyklad",1,5));
+            movieService.save(new Movie("Przyklad","Przyklad","Przyklad",new Date(105,11,24),"Przyklad",1,3));
+            movieService.save(new Movie("Przyklad","Przyklad","Przyklad",new Date(118,10,24),"Przyklad",1,5));
         }
         builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
     }

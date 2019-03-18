@@ -4,8 +4,6 @@ import com.pai2.movierental.persistence.model.Movie;
 import com.pai2.movierental.persistence.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

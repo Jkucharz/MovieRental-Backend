@@ -16,6 +16,15 @@ public class TypeService {
         return typeRepository.findAll();
     }
 
+    public boolean addType(String name){
+        boolean value = false;
+        if(getType(name)==null || !getType(name).getName().equals(name)){
+            typeRepository.save(new Type(name));
+            value = true;
+        }
+        return value;
+    }
+
     public Type getType(String type){
         return typeRepository.findByName(type);
     }

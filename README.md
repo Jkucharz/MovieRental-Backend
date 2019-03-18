@@ -44,14 +44,27 @@ secret
 
 ## API
 
+
 ### ROLE - Admin
+
 
 Pobieranie listy gatunków filmowych - GET
 ```
 /admin/movie/type
 ```
 
+Dodadanie gatunku filmu - POST
+```
+/admin/movie/type/add
+```
+```
+{
+	"name":"xxx"
+}
+```
+
 ### ROLE - Zalogowany użytkownik
+
 
 Usuwanie tokena - GET
 ```
@@ -59,6 +72,7 @@ Usuwanie tokena - GET
 ```
 
 ### ROLE - Wszyscy
+
 
 Pobieranie tokena - POST
 ```

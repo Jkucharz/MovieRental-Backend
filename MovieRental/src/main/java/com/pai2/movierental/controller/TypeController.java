@@ -1,11 +1,15 @@
 package com.pai2.movierental.controller;
 
+import com.pai2.movierental.exception.DuplicateException;
+import com.pai2.movierental.model.TypeDTO;
 import com.pai2.movierental.persistence.model.Type;
 import com.pai2.movierental.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,8 +20,15 @@ public class TypeController {
     TypeService typeService;
 
     @GetMapping(value = "/admin/movie/type")
-    public ResponseEntity<List> getRole(){
-        System.out.println(typeService.getTypes());
+    public ResponseEntity<List> getRole() {
         return new ResponseEntity<>(typeService.getTypes(), HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping(value = "/admin/movie/type/add")
+    public ResponseEntity<Type> addRole(@RequestBody TypeDTO typeDTO) {
+        if(!typeService.addType(typeDTO.getName())){
+            throw new DuplicateException("Istnieje już taki gatunek filmu");
+        }
+        return new ResponseEntity<>(typeService.getType(typeDTO.getName()), HttpStatus.ACCEPTED);
     }
 }

@@ -35,6 +35,7 @@ public class Movie {
         this.title = title;
         this.types = types;
         this.director = director;
+        productionYear.setMonth(productionYear.getMonth()-1);
         this.productionYear = productionYear;
         this.description = description;
         this.rate = rate;

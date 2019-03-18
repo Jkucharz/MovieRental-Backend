@@ -40,9 +40,9 @@ public class MovieRentalApplication {
             typeService.save(new Type("Komedia"));
 
 
-            movieService.save(new Movie("Przyklad1", Arrays.asList(typeService.getType("Horror"), typeService.getType("Komedia")), "Przyklad", new Date(100, 01, 24), "Przyklad", 5));
-            movieService.save(new Movie("Przyklad2", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(105, 11, 24), "Przyklad", 3));
-            movieService.save(new Movie("Przyklad3", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(118, 10, 24), "Przyklad", 5));
+            movieService.save(new Movie("Przyklad1", Arrays.asList(typeService.getType("Horror"), typeService.getType("Komedia")), "Przyklad", new Date(2001, 01, 24), "Przyklad", 5));
+            movieService.save(new Movie("Przyklad2", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(2015, 01, 01), "Przyklad", 3));
+            movieService.save(new Movie("Przyklad3", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(2003, 02, 27), "Przyklad", 5));
 
             rentalService.save(new Rental(userService.getUser("user"), Arrays.asList(movieService.getMovie("Przyklad1"), movieService.getMovie("Przyklad3")), new Date(105, 11, 24)));
         }

@@ -1,6 +1,7 @@
 package com.pai2.movierental.service;
 
 import com.pai2.movierental.persistence.model.Type;
+import com.pai2.movierental.persistence.repository.MovieRepository;
 import com.pai2.movierental.persistence.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,9 @@ import java.util.List;
 public class TypeService {
     @Autowired
     TypeRepository typeRepository;
+
+    @Autowired
+    MovieService movieService;
 
     public List<Type> getTypes(){
         return typeRepository.findAll();
@@ -31,5 +35,17 @@ public class TypeService {
 
     public void save(Type type){
         typeRepository.save(type);
+    }
+
+    public boolean deleteType(String name) {
+        boolean value = true;
+        if(typeRepository.findByName(name)==null){
+            value = false;
+        }else{
+            movieService.removeTypeForAllMovies(name);
+            typeRepository.delete(typeRepository.findByName(name));
+        }
+
+        return value;
     }
 }

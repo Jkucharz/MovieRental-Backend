@@ -63,6 +63,16 @@ Dodadanie gatunku filmu - POST
 }
 ```
 
+Usuwanie gatunku filmu - POST
+```
+/admin/movie/type/delete
+```
+```
+{
+	"name":"xxx"
+}
+```
+
 ### ROLE - Zalogowany użytkownik
 
 

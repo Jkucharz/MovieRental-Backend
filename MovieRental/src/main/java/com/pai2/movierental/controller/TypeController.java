@@ -1,6 +1,7 @@
 package com.pai2.movierental.controller;
 
 import com.pai2.movierental.exception.DuplicateException;
+import com.pai2.movierental.exception.NotFoundException;
 import com.pai2.movierental.model.TypeDTO;
 import com.pai2.movierental.persistence.model.Type;
 import com.pai2.movierental.service.TypeService;
@@ -25,10 +26,19 @@ public class TypeController {
     }
 
     @PostMapping(value = "/admin/movie/type/add")
-    public ResponseEntity<Type> addRole(@RequestBody TypeDTO typeDTO) {
+    public ResponseEntity<Type> addType(@RequestBody TypeDTO typeDTO) {
         if(!typeService.addType(typeDTO.getName())){
             throw new DuplicateException("Istnieje już taki gatunek filmu");
         }
         return new ResponseEntity<>(typeService.getType(typeDTO.getName()), HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping(value = "/admin/movie/type/delete")
+    public ResponseEntity<Type> deleteType(@RequestBody TypeDTO typeDTO) {
+        Type tmp = typeService.getType(typeDTO.getName());
+        if(!typeService.deleteType(typeDTO.getName())){
+            throw new NotFoundException("Nie istnieje taki gatunek filmu");
+        }
+        return new ResponseEntity<>(tmp, HttpStatus.ACCEPTED);
     }
 }

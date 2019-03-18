@@ -1,6 +1,7 @@
 package com.pai2.movierental.persistence.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity(name = "RENTAL")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class Rental {
     @Id
     @GeneratedValue

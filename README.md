@@ -44,14 +44,25 @@ secret
 
 ## API
 
-Pobieranie tokena - POST
+### ROLE - Admin
+
+Pobieranie listy gatunków filmowych - GET
 ```
-/oauth/token?grant_type=password&username=xxx&password=xxx
+/admin/movie/type
 ```
+
+### ROLE - Zalogowany użytkownik
 
 Usuwanie tokena - GET
 ```
 /logouts?access_token=xxx
+```
+
+### ROLE - Wszyscy
+
+Pobieranie tokena - POST
+```
+/oauth/token?grant_type=password&username=xxx&password=xxx
 ```
 
 Pobieranie nazwy aktualnie zalogowanego użytkownika - GET
@@ -76,6 +87,7 @@ Pobieranie wszystkich filmów - GET
 ```
 /getAllMovie
 ```
+
 
 ## Inne informacje
 

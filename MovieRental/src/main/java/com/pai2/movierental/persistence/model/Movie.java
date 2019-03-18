@@ -17,8 +17,8 @@ public class Movie {
     @GeneratedValue
     @Column(name = "ID")
     private long id;
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "Title")
+    private String title;
     @ManyToMany()
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Type> types;
@@ -31,8 +31,8 @@ public class Movie {
     @Column(name = "RATE")
     private int rate;
 
-    public Movie(String name, List<Type> types, String director, Date productionYear, String description, int rate) {
-        this.name = name;
+    public Movie(String title, List<Type> types, String director, Date productionYear, String description, int rate) {
+        this.title = title;
         this.types = types;
         this.director = director;
         this.productionYear = productionYear;

@@ -1,12 +1,10 @@
 package com.pai2.movierental;
 
 import com.pai2.movierental.configuration.CustomUserDetails;
-import com.pai2.movierental.persistence.model.Movie;
-import com.pai2.movierental.persistence.model.Role;
-import com.pai2.movierental.persistence.model.Type;
-import com.pai2.movierental.persistence.model.User;
+import com.pai2.movierental.persistence.model.*;
 import com.pai2.movierental.persistence.repository.UserRepository;
 import com.pai2.movierental.service.MovieService;
+import com.pai2.movierental.service.RentalService;
 import com.pai2.movierental.service.TypeService;
 import com.pai2.movierental.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -31,7 +28,7 @@ public class MovieRentalApplication {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository, UserService userService, MovieService movieService, TypeService typeService) throws Exception {
+    public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository, UserService userService, MovieService movieService, TypeService typeService, RentalService rentalService) throws Exception {
         if (repository.count() == 0) {
             userService.addNewRole(new Role((long) 1, "admin"));
             userService.addNewRole(new Role((long) 2, "user"));
@@ -42,9 +39,12 @@ public class MovieRentalApplication {
             typeService.save(new Type("Horror"));
             typeService.save(new Type("Komedia"));
 
-            movieService.save(new Movie("Przyklad", Arrays.asList(typeService.getType("Horror"),typeService.getType("Komedia")),"Przyklad",new Date(100,01,24),"Przyklad",5));
-            movieService.save(new Movie("Przyklad",Arrays.asList(typeService.getType("Horror")),"Przyklad",new Date(105,11,24),"Przyklad",3));
-            movieService.save(new Movie("Przyklad",Arrays.asList(typeService.getType("Horror")),"Przyklad",new Date(118,10,24),"Przyklad",5));
+
+            movieService.save(new Movie("Przyklad1", Arrays.asList(typeService.getType("Horror"), typeService.getType("Komedia")), "Przyklad", new Date(100, 01, 24), "Przyklad", 5));
+            movieService.save(new Movie("Przyklad2", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(105, 11, 24), "Przyklad", 3));
+            movieService.save(new Movie("Przyklad3", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(118, 10, 24), "Przyklad", 5));
+
+            rentalService.save(new Rental(userService.getUser("user"), Arrays.asList(movieService.getMovie("Przyklad1"), movieService.getMovie("Przyklad3")), new Date(105, 11, 24)));
         }
         builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
     }

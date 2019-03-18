@@ -15,7 +15,11 @@ public class MovieService {
         movieRepository.save(movie);
     }
 
-    public List<Movie> getMovie(String whatMovies){
+    public Movie getMovie(String title){
+        return movieRepository.findByTitle(title);
+    }
+
+    public List<Movie> getMovies(String whatMovies){
         List<Movie> list = movieRepository.findAll();
         switch (whatMovies){
             case "all":{

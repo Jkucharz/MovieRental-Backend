@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -19,27 +21,41 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void save(User user){
+    public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public void addNewRole(Role role){
+    public void addNewRole(Role role) {
         roleRepository.save(role);
     }
 
-    public Role getRole(String roleName){
+    public Role getRole(String roleName) {
         return roleRepository.findByName(roleName);
     }
 
-    public boolean userExist(String name){
-        boolean value = false ;
-        if(userRepository.findByUserName(name)!= null)
+    public boolean userExist(String name) {
+        boolean value = false;
+        if (userRepository.findByUserName(name) != null)
             value = true;
         return value;
     }
 
-    public User getUser(String name){
+    public User getUser(String name) {
         return userRepository.findByUserName(name);
+    }
+
+    public List<Role> getUserRoles(String userName) {
+        return userRepository.findByUserName(userName).getRoles();
+    }
+
+    public void setUserRoles(String userName, List<Role> roles) {
+        List<Role> newUserRoles =  userRepository.findByUserName(userName).getRoles();
+        newUserRoles.clear();
+        for (Role r : roles) {
+            newUserRoles.add(roleRepository.findByName(r.getName()));
+        }
+        userRepository.findByUserName(userName).setRoles(newUserRoles);
+        save(userRepository.findByUserName(userName));
     }
 }

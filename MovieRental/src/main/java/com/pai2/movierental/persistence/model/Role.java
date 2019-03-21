@@ -1,13 +1,16 @@
 package com.pai2.movierental.persistence.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity(name = "ROLES")
-@Getter
 @NoArgsConstructor
+@Getter
+@Setter
 public class Role {
     @Id
     @Column(name = "ID", nullable = false)
@@ -20,3 +23,5 @@ public class Role {
         this.name = name;
     }
 }
+
+

@@ -1,7 +1,9 @@
 package com.pai2.movierental.persistence.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -11,7 +13,9 @@ import java.util.List;
 
 @Entity(name = "MOVIE")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
+@Setter
 public class Movie {
     @Id
     @GeneratedValue

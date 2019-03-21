@@ -1,7 +1,8 @@
 package com.pai2.movierental;
 
 import com.pai2.movierental.configuration.CustomUserDetails;
-import com.pai2.movierental.persistence.model.*;
+import com.pai2.movierental.persistence.model.Role;
+import com.pai2.movierental.persistence.model.User;
 import com.pai2.movierental.persistence.repository.UserRepository;
 import com.pai2.movierental.service.MovieService;
 import com.pai2.movierental.service.RentalService;
@@ -15,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
-import java.util.Date;
 
 @SpringBootApplication
 public class MovieRentalApplication {
@@ -31,20 +31,8 @@ public class MovieRentalApplication {
     public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository, UserService userService, MovieService movieService, TypeService typeService, RentalService rentalService) throws Exception {
         if (repository.count() == 0) {
             userService.addNewRole(new Role((long) 1, "admin"));
-            userService.addNewRole(new Role((long) 2, "user"));
 
-            userService.save(new User("admin", "admin", "admin@movierental.pl", Arrays.asList(userService.getRole("admin"))));
-            userService.save(new User("user", "user", "user@gmail.com", Arrays.asList(userService.getRole("user"))));
-
-            typeService.save(new Type("Horror"));
-            typeService.save(new Type("Komedia"));
-
-
-            movieService.save(new Movie("Przyklad1", Arrays.asList(typeService.getType("Horror"), typeService.getType("Komedia")), "Przyklad", new Date(2001, 01, 24), "Przyklad", 5));
-            movieService.save(new Movie("Przyklad2", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(2015, 01, 01), "Przyklad", 3));
-            movieService.save(new Movie("Przyklad3", Arrays.asList(typeService.getType("Horror")), "Przyklad", new Date(2003, 02, 27), "Przyklad", 5));
-
-            rentalService.save(new Rental(userService.getUser("user"), Arrays.asList(movieService.getMovie("Przyklad1"), movieService.getMovie("Przyklad3")), new Date(105, 11, 24)));
+            userService.save(new User("admin", "admin", "admin@gmail.com", Arrays.asList(userService.getRole("admin"))));
         }
         builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
     }
@@ -53,4 +41,3 @@ public class MovieRentalApplication {
         return userName -> new CustomUserDetails(repository.findByUserName(userName));
     }
 }
-

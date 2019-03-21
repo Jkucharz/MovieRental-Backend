@@ -20,7 +20,7 @@ public class Rental {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
-    @OneToMany()
+    @ManyToMany()
     private List<Movie> movies;
     @Column(name = "RENTAL_TIME")
     private Date rentalTime;

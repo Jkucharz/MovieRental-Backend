@@ -31,6 +31,8 @@ public class MovieRentalApplication {
     public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository, UserService userService, MovieService movieService, TypeService typeService, RentalService rentalService) throws Exception {
         if (repository.count() == 0) {
             userService.addNewRole(new Role((long) 1, "admin"));
+            userService.addNewRole(new Role((long) 2, "user"));
+
 
             userService.save(new User("admin", "admin", "admin@gmail.com", Arrays.asList(userService.getRole("admin"))));
         }

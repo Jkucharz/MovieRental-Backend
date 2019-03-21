@@ -32,17 +32,9 @@ public class MovieService {
         return list;
     }
 
-    public void removeTypeForAllMovies(String type) {
-        for (int i = 0; i < movieRepository.findAll().size(); i++) {
-            List<Movie> movies = movieRepository.findAll();
-            for (int j = 0; j < movies.size(); j++) {
-                List<Type> types = movies.get(j).getTypes();
-                for (int z = 0; z < types.size(); z++) {
-                    if (types.get(z).getName().equals(type)) {
-                        movies.get(j).getTypes().remove(z);
-                    }
-                }
-            }
+    public void removeTypeForAllMovies(String typeName) {
+        for(Movie movie: movieRepository.findAll()){
+           movie.removeType(typeName);
         }
     }
 }

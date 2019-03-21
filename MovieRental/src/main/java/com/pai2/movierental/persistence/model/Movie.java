@@ -40,4 +40,12 @@ public class Movie {
         this.description = description;
         this.rate = rate;
     }
+
+    public void removeType(String type){
+        for (int i=0;i<types.size();i++){
+            if(types.get(i).getName().equals(type)){
+                types.remove(i);
+            }
+        }
+    }
 }

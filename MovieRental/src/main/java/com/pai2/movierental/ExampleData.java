@@ -49,6 +49,7 @@ public class ExampleData {
         userService.save(new User("Wojteczek", "09887612345", "Dostro69@gmail.com", Arrays.asList(userService.getRole("user"))));
     }
 
+    @PostConstruct
     public void addTypes() {
         typeService.save(new Type("Horror"));
         typeService.save(new Type("Komedia"));

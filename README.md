@@ -47,6 +47,24 @@ secret
 
 ### ROLE - Admin
 
+Przypisywanie ról użytkownikom - POST
+```
+/admin/user/setRole
+```
+```
+{
+	"userName":"xxx",
+	"roles":[
+		{
+			"name": "xxx"
+		},
+		{
+			"name": "xxx"
+		}
+	]
+}
+```
+
 
 Pobieranie listy gatunków filmowych - GET
 ```
@@ -115,6 +133,7 @@ Pobieranie wszystkich filmów - GET
 
 ## Inne informacje
 
-* Podczas startu serwera dodają się dwaj użytkownicy: user:user, admin:admin (tymczasowo)
-* Podczas startu serwera dodają się dwa filmy (tymczasowo)
+* Podczas startu serwera dodają się przykładowe dane, między innymi:\
+Login: admin\
+Hasło: admin
 

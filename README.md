@@ -91,6 +91,27 @@ Usuwanie gatunku filmu - POST
 }
 ```
 
+Dodawanie filmu - POST
+```
+/admin/movie/add
+```
+```
+{
+"title":"Nowy film",
+	"types":[
+			{
+				"name": "Dramat"
+			},
+			{
+				"name": "Komedia"
+			}
+		],
+	"director":"xxx",
+	"productionYear":"2019-04-03",
+	"description":""
+}
+```
+
 ### ROLE - Zalogowany użytkownik
 
 
@@ -100,17 +121,6 @@ Usuwanie tokena - GET
 ```
 
 ### ROLE - Wszyscy
-
-
-Pobieranie tokena - POST
-```
-/oauth/token?grant_type=password&username=xxx&password=xxx
-```
-
-Pobieranie nazwy aktualnie zalogowanego użytkownika - GET
-```
-/getUsername
-```
 
 Rejestracja użytkownika - POST
 ```
@@ -125,6 +135,17 @@ Rejestracja użytkownika - POST
 }
 ```
 
+Pobieranie tokena - POST
+```
+/oauth/token?grant_type=password&username=xxx&password=xxx
+```
+
+Pobieranie nazwy aktualnie zalogowanego użytkownika - GET
+```
+/getUsername
+```
+
+
 Pobieranie wszystkich filmów - GET
 ```
 /getAllMovie
@@ -133,7 +154,7 @@ Pobieranie wszystkich filmów - GET
 
 ## Inne informacje
 
-* Podczas startu serwera dodają się przykładowe dane, między innymi:\
-Login: admin\
-Hasło: admin
+* Podczas startu serwera dodają się przykładowe dane, między innymi:
+\Login: admin
+\Hasło: admin
 

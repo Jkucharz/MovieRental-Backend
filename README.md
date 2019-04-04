@@ -13,6 +13,8 @@ Wypożyczalnia filmów na projekt z projektowania aplikacji internetowych 2
 * Angular
 * Bootstrap
 
+# Konfiguracja
+
 ## Baza danych
 
 Nazwa
@@ -42,12 +44,51 @@ Hasło
 secret
 ```
 
-## API
+# API
 
+## Użytkownicy
 
-### ROLE - Admin
+* Rejestracja
+* Robieranie tokena
+* Sprwadzanie nazwy użytkownika (dla kogo został wygenerowany token)
+* Wylogowanie (usunięcie tokena)
+* Przypisywanie ról użytkownika
 
-Przypisywanie ról użytkownikom - POST
+### Wszyscy
+
+Rejestracja użytkownika - POST
+```
+/register
+```
+```
+{
+	"userName": "xxx",
+	"password": "xxx",
+	"passwordConfirmation": "xxx",
+	"email":"xxx@xxx"  
+}
+```
+
+Pobieranie tokena - POST
+```
+/oauth/token?grant_type=password&username=xxx&password=xxx
+```
+
+Sprwadzanie nazwy użytkownika - GET
+```
+/getUsername
+```
+
+### Zalogowany użytkownik
+
+Wylogowanie - GET
+```
+/logouts?access_token=xxx
+```
+
+### Admin
+
+Przypisywanie ról użytkownikowi - POST
 ```
 /admin/user/setRole
 ```
@@ -63,13 +104,26 @@ Przypisywanie ról użytkownikom - POST
 		}
 	]
 }
+
+### ROLE - Admin
+
+
 ```
 
+## Gatunki Filmów
+
+* Wyświetlanie gatunków
+* Dodawanie gatunków
+* Usuwanie gatunków
+
+### Wszyscy
 
 Pobieranie listy gatunków filmowych - GET
 ```
-/admin/movie/type
+/movie/type
 ```
+
+### Admin
 
 Dodadanie gatunku filmu - POST
 ```
@@ -91,13 +145,30 @@ Usuwanie gatunku filmu - POST
 }
 ```
 
+## Filmy
+
+* Wyświetlanie wszystkich filmów 
+* Wyświetlanie posortowanych filmów //TODO
+* Dodawanie filmu
+* Edycja filmu
+* Usuwanie filmu //TODO
+
+### Wszyscy
+
+Pobieranie wszystkich filmów - GET
+```
+/getAllMovie
+```
+
+### Admin
+
 Dodawanie filmu - POST
 ```
 /admin/movie/add
 ```
 ```
 {
-"title":"Nowy film",
+	"title":"Nowy film",
 	"types":[
 			{
 				"name": "Dramat"
@@ -112,49 +183,40 @@ Dodawanie filmu - POST
 }
 ```
 
-### ROLE - Zalogowany użytkownik
-
-
-Usuwanie tokena - GET
+Edycja filmu - POST
 ```
-/logouts?access_token=xxx
-```
-
-### ROLE - Wszyscy
-
-Rejestracja użytkownika - POST
-```
-/register
+/admin/movie/edit
 ```
 ```
 {
-	"userName": "xxx",
-	"password": "xxx",
-	"passwordConfirmation": "xxx",
-	"email":"xxx@xxx"  
+	"title":"Nowy film",
+	"newTitle":"Nowy film1",
+	"types":[
+			{
+				"name": "Dramat"
+			},
+			{
+				"name": "Komedia"
+			}
+		],
+	"director":"xxx",
+	"productionYear":"2019-04-03",
+	"description":""
 }
 ```
 
-Pobieranie tokena - POST
-```
-/oauth/token?grant_type=password&username=xxx&password=xxx
-```
+## Wypożyczenia
 
-Pobieranie nazwy aktualnie zalogowanego użytkownika - GET
-```
-/getUsername
-```
+* Wyświetlanie top5 wypożyczeń //TODO
+* Wypożyczenie filmu przez użytkownika //TODO
+* Sprawdzanie wypożyczeń przez użytkownika //TODO
+* Przeglądanie wypożyczeń użytkowników przez administratora //TODO
+* Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
+* Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
 
+# Pozostałe informacje
 
-Pobieranie wszystkich filmów - GET
-```
-/getAllMovie
-```
-
-
-## Inne informacje
-
-* Podczas startu serwera dodają się przykładowe dane, między innymi:
-\Login: admin
-\Hasło: admin
-
+* Podczas startu serwera dodają się przykładowe dane(użytkownicy, gatunki filmów, filmy, wypożeczenia)
+* Dane do konta administratora:<br />
+Login: admin<br />
+Hasło: admin

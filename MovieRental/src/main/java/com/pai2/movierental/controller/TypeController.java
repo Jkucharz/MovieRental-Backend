@@ -20,7 +20,7 @@ public class TypeController {
     @Autowired
     TypeService typeService;
 
-    @GetMapping(value = "/admin/movie/type")
+    @GetMapping(value = "/movie/type")
     public ResponseEntity<List> getRole() {
         return new ResponseEntity<>(typeService.getTypes(), HttpStatus.ACCEPTED);
     }

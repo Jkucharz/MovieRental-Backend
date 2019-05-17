@@ -9,9 +9,7 @@ Wypożyczalnia filmów na projekt z projektowania aplikacji internetowych 2
 * Spring Boot 2.1.1
 * JPA
 * Oauth2
-* Lombok 
-* Angular
-* Bootstrap
+* Lombok
 
 # Konfiguracja
 
@@ -104,10 +102,6 @@ Przypisywanie ról użytkownikowi - POST
 		}
 	]
 }
-
-### ROLE - Admin
-
-
 ```
 
 ## Gatunki Filmów
@@ -216,7 +210,7 @@ Edycja filmu - POST
 
 # Pozostałe informacje
 
-* Podczas startu serwera dodają się przykładowe dane(użytkownicy, gatunki filmów, filmy, wypożeczenia)
+* Podczas startu serwera dodają się przykładowe dane(użytkownicy, gatunki filmów, filmy, wypożyczenia)
 * Dane do konta administratora:<br />
 Login: admin<br />
 Hasło: admin

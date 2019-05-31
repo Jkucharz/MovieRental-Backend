@@ -32,6 +32,12 @@ public class UserController {
         if (!userRegistrationDTO.getPassword().equals(userRegistrationDTO.getPasswordConfirmation()))
             throw new BadRequestException("Hasła nie są takie same");
 
+        if (userRegistrationDTO.getUserName().equals(""))
+            throw new BadRequestException("Nie podano nazwy użytkownika");
+
+        if (userRegistrationDTO.getPassword().equals(""))
+            throw new BadRequestException("Nie podano hasła");
+
         if (userService.userExist(userRegistrationDTO.getUserName()))
             throw new DuplicateException("W bazie istnieje użytkownik o takie nazwie");
 

@@ -58,4 +58,19 @@ public class UserService {
         userRepository.findByUserName(userName).setRoles(newUserRoles);
         save(userRepository.findByUserName(userName));
     }
+
+    public boolean checkUserAdmin(String userName) {
+        boolean value = false;
+        if(userRepository.findByUserName(userName)==null){
+            return false;
+        }
+        List<Role> roles = userRepository.findByUserName(userName).getRoles();
+
+        for(Role role: roles){
+            if(role.getName().equals("admin")){
+                value = true;
+            }
+        }
+        return  value;
+    }
 }

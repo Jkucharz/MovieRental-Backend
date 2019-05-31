@@ -3,6 +3,7 @@ package com.pai2.movierental.controller;
 import com.pai2.movierental.exception.BadRequestException;
 import com.pai2.movierental.exception.DuplicateException;
 import com.pai2.movierental.exception.NotFoundException;
+import com.pai2.movierental.model.UserNameDTO;
 import com.pai2.movierental.model.UserRegistrationDTO;
 import com.pai2.movierental.model.UserSetRoleDTO;
 import com.pai2.movierental.persistence.model.Role;
@@ -57,6 +58,11 @@ public class UserController {
     @GetMapping(value = "/getUsername")
     public String getUsername() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
+    @PostMapping(value = "/checkUserAdmin")
+    public boolean checkUserAdmin(@RequestBody UserNameDTO userNameDTO) {
+        return userService.checkUserAdmin(userNameDTO.getName());
     }
 
     @PostMapping(value = "/admin/user/setRole")

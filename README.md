@@ -47,8 +47,9 @@ secret
 ## Użytkownicy
 
 * Rejestracja
-* Robieranie tokena
+* Pobieranie tokena
 * Sprwadzanie nazwy użytkownika (dla kogo został wygenerowany token)
+* Sprawdzanie czy użytkownik jest administratorem
 * Wylogowanie (usunięcie tokena)
 * Przypisywanie ról użytkownika
 
@@ -57,8 +58,6 @@ secret
 Rejestracja użytkownika - POST
 ```
 /register
-```
-```
 {
 	"userName": "xxx",
 	"password": "xxx",
@@ -77,6 +76,14 @@ Sprwadzanie nazwy użytkownika - GET
 /getUsername
 ```
 
+Sprwadzanie czy użytkownik jest administratorem - POST
+```
+/checkUserAdmin
+{
+	"name":"userName"
+}
+```
+
 ### Zalogowany użytkownik
 
 Wylogowanie - GET
@@ -89,8 +96,6 @@ Wylogowanie - GET
 Przypisywanie ról użytkownikowi - POST
 ```
 /admin/user/setRole
-```
-```
 {
 	"userName":"xxx",
 	"roles":[
@@ -122,8 +127,6 @@ Pobieranie listy gatunków filmowych - GET
 Dodadanie gatunku filmu - POST
 ```
 /admin/movie/type/add
-```
-```
 {
 	"name":"xxx"
 }
@@ -132,8 +135,6 @@ Dodadanie gatunku filmu - POST
 Usuwanie gatunku filmu - POST
 ```
 /admin/movie/type/delete
-```
-```
 {
 	"name":"xxx"
 }
@@ -159,8 +160,6 @@ Pobieranie wszystkich filmów - GET
 Dodawanie filmu - POST
 ```
 /admin/movie/add
-```
-```
 {
 	"title":"Nowy film",
 	"types":[
@@ -180,8 +179,6 @@ Dodawanie filmu - POST
 Edycja filmu - POST
 ```
 /admin/movie/edit
-```
-```
 {
 	"title":"Nowy film",
 	"newTitle":"Nowy film1",

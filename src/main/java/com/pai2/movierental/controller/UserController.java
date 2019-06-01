@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 @RestController
@@ -64,6 +65,11 @@ public class UserController {
     @GetMapping(value = "/getUsername")
     public String getUsername() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
+    @GetMapping(value = "/admin/users")
+    public List<User> getUsers() {
+        return userService.findAll();
     }
 
     @PostMapping(value = "/checkUserAdmin")

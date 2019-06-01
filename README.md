@@ -92,6 +92,10 @@ Wylogowanie - GET
 ```
 
 ### Admin
+Pobieranie listy użytkowników wraz z rolami- GET
+```
+/admin/users
+```
 
 Przypisywanie ról użytkownikowi - POST
 ```

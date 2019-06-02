@@ -8,7 +8,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity(name = "MOVIE")
@@ -29,13 +29,14 @@ public class Movie {
     @Column(name = "DIRECTOR")
     private String director;
     @Column(name = "PRODUCTION_YEAR")
-    private Date productionYear;
+    private LocalDate productionYear;
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "RATE")
     private int rate;
 
-    public Movie(String title, List<Type> types, String director, Date productionYear, String description, int rate) {
+
+    public Movie(String title, List<Type> types, String director, LocalDate productionYear, String description, int rate) {
         this.title = title;
         this.types = types;
         this.director = director;
@@ -44,9 +45,9 @@ public class Movie {
         this.rate = rate;
     }
 
-    public void removeType(String type){
-        for (int i=0;i<types.size();i++){
-            if(types.get(i).getName().equals(type)){
+    public void removeType(String type) {
+        for (int i = 0; i < types.size(); i++) {
+            if (types.get(i).getName().equals(type)) {
                 types.remove(i);
             }
         }

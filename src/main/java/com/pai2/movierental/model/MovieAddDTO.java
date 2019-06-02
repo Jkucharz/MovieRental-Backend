@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,6 +17,6 @@ public class MovieAddDTO {
     private String title;
     private List<Type> types;
     private String director;
-    private Date productionYear;
+    private LocalDate productionYear;
     private String description;
 }

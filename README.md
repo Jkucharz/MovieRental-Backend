@@ -204,8 +204,8 @@ Edycja filmu - POST
 
 * Wyświetlanie top5 wypożyczeń //TODO
 * Wypożyczanie filmów przez użytkownika
-* Sprawdzanie wypożyczeń przez użytkownika //TODO
-* Przeglądanie wypożyczeń użytkowników przez administratora
+* Sprawdzanie wypożyczeń przez użytkownika
+* Przeglądanie wszystkich wypożyczeń przez administratora
 * Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
 * Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
 
@@ -223,9 +223,14 @@ Wypożyczanie filmów przez użytkownika - POST
 }
 ```
 
+Sprawdzanie wypożyczeń przez użytkownika - GET
+```
+/rental/add
+```
+
 ### Admin
 
-Pobieranie wszystkich wypożyczeń - GET
+Przeglądanie wszystkich wypożyczeń przez administratora - GET
 ```
 /admin/rental
 ```

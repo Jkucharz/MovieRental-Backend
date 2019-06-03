@@ -32,13 +32,29 @@ public class RentalController {
     UserService userService;
 
     @GetMapping(value = "/admin/rental")
-    public ResponseEntity<List> getRole() {
+    public ResponseEntity<List> getAdminRental() {
         return new ResponseEntity<>(rentalService.getRentals(), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping(value = "/rental")
+    public ResponseEntity<List> getRental() {
+
+        List<Rental> rentals = new ArrayList<>();
+
+        for (Rental rental : rentalService.getRentals()) {
+            if (rental.getUser().getUserName().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
+                rentals.add(rental);
+            }
+        }
+        if(rentals.size()==0){
+            throw new NotFoundException("Brak wypożyczeń");
+        }
+        return new ResponseEntity<>(rentals, HttpStatus.ACCEPTED);
     }
 
     @PostMapping(value = "/rental/add")
     public ResponseEntity<Rental> addRental(@RequestBody RentalAddDTO rentalAddDTO) {
-              for (Movie movie : rentalAddDTO.getMovies()) {
+        for (Movie movie : rentalAddDTO.getMovies()) {
             if (movieService.getMovie(movie.getTitle()) == null)
                 throw new NotFoundException("Nie istnieje film o nazwie: " + movie.getTitle());
 

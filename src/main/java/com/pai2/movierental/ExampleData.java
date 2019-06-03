@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 
 @Component
@@ -33,6 +32,14 @@ public class ExampleData {
 
 
     @PostConstruct()
+    public void addExampleData(){
+        addUsers();
+        addTypes();
+        addMovies();
+        addRentals();
+    }
+
+
     public void addUsers() {
         userService.save(new User("Tomek", "kikut", "Tomekk@gmail.com", Arrays.asList(userService.getRole("user"))));
         userService.save(new User("KKKamil", "haslo", "Kamil1995@gmail.com", Arrays.asList(userService.getRole("user"))));
@@ -51,7 +58,6 @@ public class ExampleData {
         userService.save(new User("Wojteczek", "09887612345", "Dostro69@gmail.com", Arrays.asList(userService.getRole("user"))));
     }
 
-    @PostConstruct
     public void addTypes() {
         typeService.save(new Type("Horror"));
         typeService.save(new Type("Komedia"));
@@ -64,7 +70,6 @@ public class ExampleData {
         typeService.save(new Type("Przygodowy"));
     }
 
-    @PostConstruct()
     public void addMovies() {
         movieService.save(new Movie("Zielona mila", Arrays.asList(typeService.getType("Dramat")), "Frank Darabont", LocalDate.of(1999, 12, 06), "Emerytowany strażnik więzienny opowiada przyjaciółce o niezwykłym mężczyźnie, którego skazano na śmierć za zabójstwo dwóch 9-letnich dziewczynek.", 5));
         movieService.save(new Movie("Skazani na Shawshank", Arrays.asList(typeService.getType("Dramat")), "Frank Darabont", LocalDate.of(1994, 8, 10), "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.", 5));
@@ -94,7 +99,6 @@ public class ExampleData {
 
     }
 
-    @PostConstruct()
     public void addRentals() {
         rentalService.save(new Rental(userService.getUser("Wojtek"), Arrays.asList(movieService.getMovie("Matrix"), movieService.getMovie("Avatar"), movieService.getMovie("Jestem legendą"), movieService.getMovie("Lśnienie")), new Date(2012, 01, 14)));
         rentalService.save(new Rental(userService.getUser("Krzysiek"), Arrays.asList(movieService.getMovie("Przed północą"), movieService.getMovie("Byle zero")), new Date(2015, 11, 24)));

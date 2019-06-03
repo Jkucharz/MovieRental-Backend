@@ -24,11 +24,12 @@ public class Rental {
     private List<Movie> movies;
     @Column(name = "RENTAL_TIME")
     private LocalDate rentalTime;
+    @Column(name = "RETURN_TIME")
+    private LocalDate returnTime;
 
     public Rental(User user, List<Movie> movies, LocalDate rentalTime) {
         this.user = user;
         this.movies = movies;
         this.rentalTime = rentalTime;
     }
-
 }

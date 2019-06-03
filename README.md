@@ -206,8 +206,7 @@ Edycja filmu - POST
 * Wypożyczanie filmów przez użytkownika
 * Sprawdzanie wypożyczeń przez użytkownika
 * Przeglądanie wszystkich wypożyczeń przez administratora
-* Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
-* Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
+* Usuwanie (zwrot) wypożyczeń przez administratora //TODO
 
 ### Zalogowany użytkownik
 

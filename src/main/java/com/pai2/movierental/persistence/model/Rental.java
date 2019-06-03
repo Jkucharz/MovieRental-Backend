@@ -1,12 +1,11 @@
 package com.pai2.movierental.persistence.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity(name = "RENTAL")
@@ -24,9 +23,9 @@ public class Rental {
     @ManyToMany()
     private List<Movie> movies;
     @Column(name = "RENTAL_TIME")
-    private Date rentalTime;
+    private LocalDate rentalTime;
 
-    public Rental(User user, List<Movie> movies, Date rentalTime) {
+    public Rental(User user, List<Movie> movies, LocalDate rentalTime) {
         this.user = user;
         this.movies = movies;
         this.rentalTime = rentalTime;

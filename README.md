@@ -203,11 +203,25 @@ Edycja filmu - POST
 ## Wypożyczenia
 
 * Wyświetlanie top5 wypożyczeń //TODO
-* Wypożyczenie filmu przez użytkownika //TODO
+* Wypożyczanie filmów przez użytkownika
 * Sprawdzanie wypożyczeń przez użytkownika //TODO
-* Przeglądanie wypożyczeń użytkowników przez administratora //TODO
+* Przeglądanie wypożyczeń użytkowników przez administratora
 * Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
 * Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
+
+### Wszyscy
+
+Wypożyczanie filmów przez użytkownika - POST
+```
+/rental/add
+{
+	"movies":[
+        {
+            "title":"Avatar"
+        }
+	]
+}
+```
 
 ### Admin
 

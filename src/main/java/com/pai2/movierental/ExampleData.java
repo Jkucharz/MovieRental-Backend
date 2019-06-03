@@ -100,17 +100,17 @@ public class ExampleData {
     }
 
     public void addRentals() {
-        rentalService.save(new Rental(userService.getUser("Wojtek"), Arrays.asList(movieService.getMovie("Matrix"), movieService.getMovie("Avatar"), movieService.getMovie("Jestem legendą"), movieService.getMovie("Lśnienie")), new Date(2012, 01, 14)));
-        rentalService.save(new Rental(userService.getUser("Krzysiek"), Arrays.asList(movieService.getMovie("Przed północą"), movieService.getMovie("Byle zero")), new Date(2015, 11, 24)));
-        rentalService.save(new Rental(userService.getUser("Tomek"), Arrays.asList(movieService.getMovie("Władca Pierścieni"), movieService.getMovie("Król Lew"), movieService.getMovie("Byle zero")), new Date(2014, 05, 24)));
-        rentalService.save(new Rental(userService.getUser("Mariusz"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Zielona mila")), new Date(2012, 8, 12)));
-        rentalService.save(new Rental(userService.getUser("Mateusz12"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Epoka lodowcowa"), movieService.getMovie("Avatar")), new Date(2019, 02, 12)));
-        rentalService.save(new Rental(userService.getUser("Mateusz111"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Forrest Gump")), new Date(2011, 9, 12)));
-        rentalService.save(new Rental(userService.getUser("Buba"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Szósty zmysł")), new Date(2019, 11, 14)));
-        rentalService.save(new Rental(userService.getUser("JakuP"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Matrix"), movieService.getMovie("Avatar")), new Date(2012, 10, 94)));
-        rentalService.save(new Rental(userService.getUser("Kamillo"), Arrays.asList(movieService.getMovie("Forrest Gump"), movieService.getMovie("Incepcja")), new Date(2017, 9, 24)));
-        rentalService.save(new Rental(userService.getUser("KKKamil"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Zmierzch"), movieService.getMovie("Matrix")), new Date(2011, 11, 24)));
-        rentalService.save(new Rental(userService.getUser("Wojtekczek"), Arrays.asList(movieService.getMovie("Szósty zmysł"), movieService.getMovie("Incepcja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły")), new Date(2019, 10, 04)));
-        rentalService.save(new Rental(userService.getUser("Zbychu"), Arrays.asList(movieService.getMovie("Seksmisja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły"), movieService.getMovie("Król Lew")), new Date(2001, 11, 24)));
+        rentalService.save(new Rental(userService.getUser("Wojtek"), Arrays.asList(movieService.getMovie("Matrix"), movieService.getMovie("Avatar"), movieService.getMovie("Jestem legendą"), movieService.getMovie("Lśnienie")),  LocalDate.of(2012, 01, 14)));
+        rentalService.save(new Rental(userService.getUser("Krzysiek"), Arrays.asList(movieService.getMovie("Przed północą"), movieService.getMovie("Byle zero")),  LocalDate.of(2015, 11, 24)));
+        rentalService.save(new Rental(userService.getUser("Tomek"), Arrays.asList(movieService.getMovie("Władca Pierścieni"), movieService.getMovie("Król Lew"), movieService.getMovie("Byle zero")),  LocalDate.of(2014, 05, 24)));
+        rentalService.save(new Rental(userService.getUser("Mariusz"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Zielona mila")),  LocalDate.of(2012, 8, 12)));
+        rentalService.save(new Rental(userService.getUser("Mateusz12"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Epoka lodowcowa"), movieService.getMovie("Avatar")),  LocalDate.of(2019, 02, 12)));
+        rentalService.save(new Rental(userService.getUser("Mateusz111"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Forrest Gump")),  LocalDate.of(2011, 9, 12)));
+        rentalService.save(new Rental(userService.getUser("Buba"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Szósty zmysł")),  LocalDate.of(2019, 11, 14)));
+        rentalService.save(new Rental(userService.getUser("JakuP"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Matrix"), movieService.getMovie("Avatar")),  LocalDate.of(2012, 10, 14)));
+        rentalService.save(new Rental(userService.getUser("Kamillo"), Arrays.asList(movieService.getMovie("Forrest Gump"), movieService.getMovie("Incepcja")),  LocalDate.of(2017, 9, 24)));
+        rentalService.save(new Rental(userService.getUser("KKKamil"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Zmierzch"), movieService.getMovie("Matrix")),  LocalDate.of(2011, 11, 24)));
+        rentalService.save(new Rental(userService.getUser("Wojtekczek"), Arrays.asList(movieService.getMovie("Szósty zmysł"), movieService.getMovie("Incepcja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły")),  LocalDate.of(2019, 10, 04)));
+        rentalService.save(new Rental(userService.getUser("Zbychu"), Arrays.asList(movieService.getMovie("Seksmisja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły"), movieService.getMovie("Król Lew")),  LocalDate.of(2001, 11, 24)));
     }
 }

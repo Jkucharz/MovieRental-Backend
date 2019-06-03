@@ -209,6 +209,12 @@ Edycja filmu - POST
 * Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
 * Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
 
+### Admin
+
+Pobieranie wszystkich wypożyczeń - GET
+```
+/admin/rental
+```
 # Pozostałe informacje
 
 * Podczas startu serwera dodają się przykładowe dane(użytkownicy, gatunki filmów, filmy, wypożyczenia)

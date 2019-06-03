@@ -209,7 +209,7 @@ Edycja filmu - POST
 * Edycja (np przedłużenie czasu zwrotu) wypożyczeń użytkowników przez administratora //TODO
 * Usuwanie (zwrot) wypożyczeń użytkowników przez administratora //TODO
 
-### Wszyscy
+### Zalogowany użytkownik
 
 Wypożyczanie filmów przez użytkownika - POST
 ```

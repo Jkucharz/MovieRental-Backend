@@ -56,7 +56,7 @@ public class UserService {
             newUserRoles.add(roleRepository.findByName(r.getName()));
         }
         userRepository.findByUserName(userName).setRoles(newUserRoles);
-        save(userRepository.findByUserName(userName));
+        userRepository.save(userRepository.findByUserName(userName));
     }
 
     public boolean checkUserAdmin(String userName) {

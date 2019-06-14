@@ -29,13 +29,18 @@ public class MovieController {
 
     @GetMapping(value = "/getAllMovies")
     public List getAllMovies() {
-        return movieService.getMovies("all");
+        List<Movie> movies = movieService.getMovies("all");
+
+        for (Movie movie : movies) {
+            movie.setRate(String.valueOf(movieService.getAvarage(movie.getTitle())));
+        }
+        return movies;
     }
 
     @PostMapping(value = "/movie/rate")
     public ResponseEntity<Movie> rateMovie(@RequestBody MovieRateDTO movieRateDTO) {
 
-        if(movieRateDTO.getRate()<1 || movieRateDTO.getRate()>5)
+        if (movieRateDTO.getRate() < 1 || movieRateDTO.getRate() > 5)
             throw new BadRequestException("Film można ocenić od 0 do 5");
 
         movieService.rateMovie(movieRateDTO.getTitle(), movieRateDTO.getRate());

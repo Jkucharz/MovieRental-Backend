@@ -5,6 +5,7 @@ import com.pai2.movierental.persistence.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -63,7 +64,26 @@ public class MovieService {
 
     public void rateMovie(String title, int rate) {
         Movie movie = movieRepository.findByTitle(title);
-        movie.setRate(movie.getRate()+","+Integer.toString(rate));
+        movie.setRate(movie.getRate() + "," + Integer.toString(rate));
         movieRepository.save(movie);
+    }
+
+    public int getAvarage(String title) {
+        String value = movieRepository.findByTitle(title).getRate();
+        List<Integer> rates = new ArrayList<>();
+
+        for (int i = 0; i < value.length(); i++) {
+            if (value.charAt(i) != ',') {
+                rates.add(Character.getNumericValue(value.charAt(i)));
+            }
+        }
+
+        double sum = 0;
+
+        for (Integer i : rates) {
+            sum+=i;
+        }
+
+        return (int)Math.round(sum/rates.size());
     }
 }

@@ -1,9 +1,11 @@
 package com.pai2.movierental.controller;
 
+import com.pai2.movierental.exception.BadRequestException;
 import com.pai2.movierental.exception.DuplicateException;
 import com.pai2.movierental.exception.NotFoundException;
 import com.pai2.movierental.model.MovieAddDTO;
 import com.pai2.movierental.model.MovieEditDTO;
+import com.pai2.movierental.model.MovieRateDTO;
 import com.pai2.movierental.persistence.model.Movie;
 import com.pai2.movierental.service.MovieService;
 import com.pai2.movierental.service.TypeService;
@@ -28,6 +30,17 @@ public class MovieController {
     @GetMapping(value = "/getAllMovies")
     public List getAllMovies() {
         return movieService.getMovies("all");
+    }
+
+    @PostMapping(value = "/movie/rate")
+    public ResponseEntity<Movie> rateMovie(@RequestBody MovieRateDTO movieRateDTO) {
+
+        if(movieRateDTO.getRate()<1 || movieRateDTO.getRate()>5)
+            throw new BadRequestException("Film można ocenić od 0 do 5");
+
+        movieService.rateMovie(movieRateDTO.getTitle(), movieRateDTO.getRate());
+
+        return new ResponseEntity<>(movieService.getMovie(movieRateDTO.getTitle()), HttpStatus.ACCEPTED);
     }
 
     @PostMapping(value = "/admin/movie/add")

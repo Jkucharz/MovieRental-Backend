@@ -60,4 +60,10 @@ public class MovieService {
             movie.removeType(typeName);
         }
     }
+
+    public void rateMovie(String title, int rate) {
+        Movie movie = movieRepository.findByTitle(title);
+        movie.setRate(movie.getRate()+","+Integer.toString(rate));
+        movieRepository.save(movie);
+    }
 }

@@ -33,7 +33,7 @@ public class Movie {
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "RATE")
-    private int rate;
+    private String rate;
 
 
     public Movie(String title, List<Type> types, String director, LocalDate productionYear, String description, int rate) {
@@ -42,7 +42,7 @@ public class Movie {
         this.director = director;
         this.productionYear = productionYear;
         this.description = description;
-        this.rate = rate;
+        this.rate = Integer.toString(rate);
     }
 
     public void removeType(String type) {

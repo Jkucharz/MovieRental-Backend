@@ -150,6 +150,7 @@ Usuwanie gatunku filmu - POST
 * Wyświetlanie posortowanych filmów //TODO
 * Dodawanie filmu
 * Edycja filmu
+* Dodawanie oceny filmu
 * Usuwanie filmu //TODO
 
 ### Wszyscy
@@ -197,6 +198,15 @@ Edycja filmu - POST
 	"director":"xxx",
 	"productionYear":"2019-04-03",
 	"description":""
+}
+```
+
+Dodawanie oceny filmu - POST
+```
+/movie/rate
+{
+	"title":"Zielona mila",
+	"rate":3
 }
 ```
 

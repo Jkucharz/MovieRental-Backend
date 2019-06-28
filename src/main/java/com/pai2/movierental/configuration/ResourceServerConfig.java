@@ -28,10 +28,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/rental/").hasAuthority("ROLE_USER")
-                .antMatchers("/rental/").hasAuthority("ROLE_ADMIN")
-                .antMatchers("/rental/add").hasAuthority("ROLE_USER")
-                .antMatchers("/rental/add").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN");
     }
 }

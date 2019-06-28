@@ -56,7 +56,6 @@ public class UserController {
         return userRegistrationDTO;
     }
 
-
     @GetMapping(value = "/logouts")
     public void logout(@RequestParam(value = "access_token") String accessToken) {
         tokenStore.removeAccessToken(tokenStore.readAccessToken(accessToken));

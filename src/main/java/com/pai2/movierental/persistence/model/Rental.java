@@ -32,4 +32,12 @@ public class Rental {
         this.movies = movies;
         this.rentalTime = rentalTime;
     }
+
+    public void removeRental(String title) {
+        for (int i = 0; i < movies.size(); i++) {
+            if (movies.get(i).getTitle().equals(title)) {
+                movies.remove(i);
+            }
+        }
+    }
 }

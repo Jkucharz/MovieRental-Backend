@@ -1,7 +1,9 @@
 package com.pai2.movierental.service;
 
 import com.pai2.movierental.persistence.model.Movie;
+import com.pai2.movierental.persistence.model.Rental;
 import com.pai2.movierental.persistence.repository.MovieRepository;
+import com.pai2.movierental.persistence.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ import java.util.List;
 public class MovieService {
     @Autowired
     MovieRepository movieRepository;
+
+    @Autowired
+    RentalRepository rentalRepository;
 
     public void save(Movie movie) {
         movieRepository.save(movie);
@@ -81,9 +86,20 @@ public class MovieService {
         double sum = 0;
 
         for (Integer i : rates) {
-            sum+=i;
+            sum += i;
         }
 
-        return (int)Math.round(sum/rates.size());
+        return (int) Math.round(sum / rates.size());
+    }
+
+    public void removeMovie(Movie movie) {
+        this.removeRentalForMovie(movie.getTitle());
+        movieRepository.delete(movie);
+    }
+
+    public void removeRentalForMovie(String title) {
+        for (Rental rental : rentalRepository.findAll()) {
+            rental.removeRental(title);
+        }
     }
 }

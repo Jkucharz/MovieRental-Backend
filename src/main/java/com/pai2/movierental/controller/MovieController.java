@@ -88,4 +88,12 @@ public class MovieController {
 
         return new ResponseEntity<>(movieService.getMovie(movieEditDTO.getNewTitle()), HttpStatus.ACCEPTED);
     }
+
+    @PostMapping(value = "/admin/movie/remove")
+    public ResponseEntity deleteMovie(@RequestBody Movie movie) {
+
+        movieService.removeMovie(movie);
+
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
 }

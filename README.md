@@ -149,9 +149,9 @@ Usuwanie gatunku filmu - POST
 * Wyświetlanie wszystkich filmów 
 * Wyświetlanie posortowanych filmów //TODO
 * Dodawanie filmu
+* Usuwanie filmu
 * Edycja filmu
 * Dodawanie oceny filmu
-* Usuwanie filmu //TODO
 
 ### Wszyscy
 
@@ -165,6 +165,25 @@ Pobieranie wszystkich filmów - GET
 Dodawanie filmu - POST
 ```
 /admin/movie/add
+{
+	"title":"Nowy film",
+	"types":[
+			{
+				"name": "Dramat"
+			},
+			{
+				"name": "Komedia"
+			}
+		],
+	"director":"xxx",
+	"productionYear":"2019-04-03",
+	"description":""
+}
+```
+
+Usuwanie filmu - POST
+```
+/admin/movie/remove
 {
 	"title":"Nowy film",
 	"types":[

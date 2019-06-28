@@ -235,7 +235,7 @@ Dodawanie oceny filmu - POST
 * Wypożyczanie filmów przez użytkownika
 * Sprawdzanie wypożyczeń przez użytkownika
 * Przeglądanie wszystkich wypożyczeń przez administratora
-* Usuwanie (zwrot) wypożyczeń przez administratora //TODO
+* Usuwanie (zwrot) wypożyczeń przez administratora 
 
 ### Zalogowany użytkownik
 
@@ -261,6 +261,14 @@ Sprawdzanie wypożyczeń przez użytkownika - GET
 Przeglądanie wszystkich wypożyczeń przez administratora - GET
 ```
 /admin/rental
+```
+
+Usuwanie (zwrot) wypożyczeń przez administratora - POST 
+```
+/admin/rental/remove
+{
+	"id":42
+}
 ```
 # Pozostałe informacje
 

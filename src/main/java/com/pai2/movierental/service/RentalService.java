@@ -19,4 +19,8 @@ public class RentalService {
     public List<Rental> getRentals() {
         return rentalRepository.findAll();
     }
+
+    public void removeRental(int id) {
+        rentalRepository.delete(rentalRepository.findById(id));
+    }
 }

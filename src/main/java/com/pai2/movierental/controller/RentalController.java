@@ -2,6 +2,7 @@ package com.pai2.movierental.controller;
 
 import com.pai2.movierental.exception.NotFoundException;
 import com.pai2.movierental.model.RentalAddDTO;
+import com.pai2.movierental.model.RentalRemoveDTO;
 import com.pai2.movierental.persistence.model.Movie;
 import com.pai2.movierental.persistence.model.Rental;
 import com.pai2.movierental.service.MovieService;
@@ -50,6 +51,12 @@ public class RentalController {
             throw new NotFoundException("Brak wypożyczeń");
         }
         return new ResponseEntity<>(rentals, HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping(value = "/admin/rental/remove")
+    public ResponseEntity removeRental(@RequestBody RentalRemoveDTO rentalRemoveDTO) {
+        rentalService.removeRental(rentalRemoveDTO.getId());
+        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
     @PostMapping(value = "/rental/add")

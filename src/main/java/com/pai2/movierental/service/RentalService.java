@@ -17,7 +17,7 @@ public class RentalService {
     }
 
     public List<Rental> getRentals() {
-        return rentalRepository.findAll();
+        return rentalRepository.findAllByOrderByRentalTimeDesc();
     }
 
     public void removeRental(int id) {

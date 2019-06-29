@@ -106,11 +106,11 @@ public class ExampleData {
         rentalService.save(new Rental(userService.getUser("Mariusz"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Zielona mila")),  LocalDate.of(2012, 8, 12)));
         rentalService.save(new Rental(userService.getUser("Mateusz12"), Arrays.asList(movieService.getMovie("Jak wytresować smoka"), movieService.getMovie("Epoka lodowcowa"), movieService.getMovie("Avatar")),  LocalDate.of(2019, 02, 12)));
         rentalService.save(new Rental(userService.getUser("Mateusz111"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Forrest Gump")),  LocalDate.of(2011, 9, 12)));
-        rentalService.save(new Rental(userService.getUser("Buba"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Szósty zmysł")),  LocalDate.of(2019, 11, 14)));
+        rentalService.save(new Rental(userService.getUser("Buba"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Szósty zmysł")),  LocalDate.of(2019, 04, 14)));
         rentalService.save(new Rental(userService.getUser("JakuP"), Arrays.asList(movieService.getMovie("Nietykalni"), movieService.getMovie("Matrix"), movieService.getMovie("Avatar")),  LocalDate.of(2012, 10, 14)));
         rentalService.save(new Rental(userService.getUser("Kamillo"), Arrays.asList(movieService.getMovie("Forrest Gump"), movieService.getMovie("Incepcja")),  LocalDate.of(2017, 9, 24)));
         rentalService.save(new Rental(userService.getUser("KKKamil"), Arrays.asList(movieService.getMovie("Zielona mila"), movieService.getMovie("Zmierzch"), movieService.getMovie("Matrix")),  LocalDate.of(2011, 11, 24)));
-        rentalService.save(new Rental(userService.getUser("Wojteczek"), Arrays.asList(movieService.getMovie("Szósty zmysł"), movieService.getMovie("Incepcja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły")),  LocalDate.of(2019, 10, 04)));
+        rentalService.save(new Rental(userService.getUser("Wojteczek"), Arrays.asList(movieService.getMovie("Szósty zmysł"), movieService.getMovie("Incepcja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły")),  LocalDate.of(2019, 05, 04)));
         rentalService.save(new Rental(userService.getUser("Zbychu"), Arrays.asList(movieService.getMovie("Seksmisja"), movieService.getMovie("Piraci z Karaibów: Klątwa Czarnej Perły"), movieService.getMovie("Król Lew")),  LocalDate.of(2001, 11, 24)));
     }
 }

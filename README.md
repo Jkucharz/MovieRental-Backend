@@ -146,8 +146,7 @@ Usuwanie gatunku filmu - POST
 
 ## Filmy
 
-* Wyświetlanie wszystkich filmów 
-* Wyświetlanie posortowanych filmów //TODO
+* Wyświetlanie wszystkich filmów wraz z sortowaniem
 * Dodawanie filmu
 * Usuwanie filmu
 * Edycja filmu
@@ -155,9 +154,12 @@ Usuwanie gatunku filmu - POST
 
 ### Wszyscy
 
-Pobieranie wszystkich filmów - GET
+Pobieranie wszystkich filmów - POST
 ```
 /getAllMovie
+{
+	"sortType":"rateDescending"
+}
 ```
 
 ### Admin

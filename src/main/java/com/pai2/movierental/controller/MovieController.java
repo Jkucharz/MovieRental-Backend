@@ -5,10 +5,12 @@ import com.pai2.movierental.exception.DuplicateException;
 import com.pai2.movierental.exception.NotFoundException;
 import com.pai2.movierental.model.MovieAddDTO;
 import com.pai2.movierental.model.MovieEditDTO;
+import com.pai2.movierental.model.MovieGetDTO;
 import com.pai2.movierental.model.MovieRateDTO;
 import com.pai2.movierental.persistence.model.Movie;
 import com.pai2.movierental.service.MovieService;
 import com.pai2.movierental.service.TypeService;
+import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +29,27 @@ public class MovieController {
     @Autowired
     TypeService typeService;
 
-    @GetMapping(value = "/getAllMovies")
-    public List getAllMovies() {
+    @PostMapping(value = "/getAllMovies")
+    public List getAllMovies(@RequestBody MovieGetDTO movieGetDTO) {
+
         List<Movie> movies = movieService.getMovies("all");
+
+        if(movieGetDTO.getSortType().equalsIgnoreCase("titleDescending")){
+            movies = movieService.getMovies("titleDescending");
+        }
+
+        if(movieGetDTO.getSortType().equalsIgnoreCase("titleAscending")){
+            movies = movieService.getMovies("titleAscending");
+        }
+
+        if(movieGetDTO.getSortType().equalsIgnoreCase("rateDescending")){
+            movies = movieService.getMovies("rateDescending");
+        }
+
+        if(movieGetDTO.getSortType().equalsIgnoreCase("rateAscending")){
+            movies = movieService.getMovies("rateAscending");
+        }
+
 
         for (Movie movie : movies) {
             movie.setRate(String.valueOf(movieService.getAvarage(movie.getTitle())));

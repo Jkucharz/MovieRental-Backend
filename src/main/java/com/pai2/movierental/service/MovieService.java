@@ -41,6 +41,23 @@ public class MovieService {
                 list = movieRepository.findAll();
                 break;
             }
+            case "titleDescending": {
+                list = movieRepository.findAllByOrderByTitleDesc();
+                break;
+            }
+            case "titleAscending": {
+                list = movieRepository.findAllByOrderByTitleAsc();
+                break;
+            }
+            case "rateDescending": {
+                list = movieRepository.findAllByOrderByRateDesc();
+                break;
+            }
+            case "rateAscending": {
+                list = movieRepository.findAllByOrderByRateAsc();
+                break;
+            }
+
         }
         return list;
     }

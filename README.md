@@ -162,6 +162,15 @@ Pobieranie wszystkich filmów - POST
 }
 ```
 
+Dodawanie oceny filmu - POST
+```
+/movie/rate
+{
+	"title":"Zielona mila",
+	"rate":3
+}
+```
+
 ### Admin
 
 Dodawanie filmu - POST
@@ -219,15 +228,6 @@ Edycja filmu - POST
 	"director":"xxx",
 	"productionYear":"2019-04-03",
 	"description":""
-}
-```
-
-Dodawanie oceny filmu - POST
-```
-/movie/rate
-{
-	"title":"Zielona mila",
-	"rate":3
 }
 ```
 
